@@ -8,4 +8,5 @@ app = tornado.web.Application([
     (r"/", api.HealthHandler),
     (r"/font", api.GetFontTypesHandler),
     (r"/gen", api.GenCopybookHandler),
+    (r"/ocr", api.OCRHandler),
 ])
