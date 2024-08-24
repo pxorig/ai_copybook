@@ -79,6 +79,6 @@ class Copybook:
 
 if __name__ == '__main__':
     words = "  创建一个\n空白图像\n这里设置图像 大小为\n 颜色模式为\n替换为你实\n  际的字体文件路径\n   哈哈哈哈"
-    c = Copybook(words=words, font_size=200, font_path='../../ttf/楷体_GB2312.ttf')
+    c = Copybook(words=words, font_size=200, font_path='../../ttf/正楷.ttf')
     img = c.gen()
     # print(img)
