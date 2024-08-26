@@ -3,11 +3,15 @@
 import cv2
 import requests
 import numpy as np
-from src.ocr.ppocronnx.predict_system import TextSystem
 
+# import pycorrector
+import os
+import sys
+sys.path.append(f'{os.getcwd()}/src/ocr/ppocronnx')
+# print(sys.path)
+from .ppocronnx.predict_system import TextSystem
 
 text_sys = TextSystem()
-
 
 def read_image_from_url(image_url):
     response = requests.get(image_url)
@@ -23,8 +27,20 @@ def read_image_from_url(image_url):
     return None
 
 # 检测并识别文本
-url = "https://sfsm.jmxy.cc/wimg/028d2c63c400080019043066dee.jpg"
-img = read_image_from_url(url)
-res = text_sys.detect_and_ocr(img)
-for boxed_result in res:
-    print("{}, {:.3f}".format(boxed_result.ocr_text, boxed_result.score))
+def recognition(url: str) -> str:
+    result = []
+    img = read_image_from_url(url)
+    res = text_sys.detect_and_ocr(img)
+    # m = ProperCorrector()
+    for boxed_result in res:
+        result.append(boxed_result.ocr_text)
+        # print("{}, {:.3f}".format(boxed_result.ocr_text, boxed_result.score))
+    
+
+    result = "\n".join(result)
+    print(result)
+    return result
+
+# url = "https://sfsm.jmxy.cc/wimg/028d2c63c400080019043066dee.jpg"
+# res = recognition(url=url)
+# print(res)
