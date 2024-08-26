@@ -9,7 +9,7 @@ RUN apt-get update
 RUN apt-get install -y tzdata ca-certificates
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 
-RUN apt-get install libgl1-mesa-glx
+RUN apt-get install -y libgl1-mesa-glx
 RUN pip install -r requirements.txt
 
 COPY . .
