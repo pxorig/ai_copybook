@@ -2,4 +2,8 @@ tornado
 numpy
 pillow
 requests
-ppocr-onnx
+onnxruntime
+opencv-python
+shapely
+pyclipper
+pillow

@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-# pip install ppocr-onnx
 
 import cv2
 import requests
 import numpy as np
-from ppocronnx.predict_system import TextSystem
+from src.ocr.ppocronnx.predict_system import TextSystem
 
 
 text_sys = TextSystem()
