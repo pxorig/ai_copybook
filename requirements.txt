@@ -1,2 +1,5 @@
 tornado
+numpy
 pillow
+requests
+ppocr-onnx
